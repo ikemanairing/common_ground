@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>세션 종료: 여정의 마무리</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee8c2b",
+                        "primary-foreground": "#1b140d",
+                        "background-light": "#fcfaf8",
+                        "background-dark": "#221910",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#32261a",
+                        "text-main-light": "#1b140d",
+                        "text-main-dark": "#e8e0d9",
+                        "text-sub-light": "#6b5e52",
+                        "text-sub-dark": "#b0a69e",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"],
+                        "body": ["Noto Sans KR", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<script src="./mobile-app-nav.js" defer></script>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-body antialiased text-text-main-light dark:text-text-main-dark selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col mx-auto max-w-md bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between px-4 py-3 sticky top-0 z-10 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+<button data-nav="back" class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-text-main-light dark:text-text-main-dark">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">마무리</h2>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col items-center justify-center px-6 pt-4 pb-8 text-center">
+<!-- Icon/Illustration Area -->
+<div class="mb-8 relative flex items-center justify-center">
+<!-- Decorative background blob -->
+<div class="absolute w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+<!-- Main Illustration Container -->
+<div class="relative z-10 w-48 h-48 bg-surface-light dark:bg-surface-dark rounded-full shadow-lg flex items-center justify-center border border-primary/10">
+<div class="w-full h-full rounded-full bg-center bg-cover" data-alt="Close up of warm orange autumn leaves with soft lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPzw5QkQlePP2FzVy7rU19cNPWFoFYROt8mqG0b3aKoQPMg6rzonlT8Fjy62Ldz2O4onv3C7F-l285_1qKPlacwgisWkdXAkT4UrAFl5-YBCEeM3JGh7jappRdjjta8250Yn5NDENiA5xLiG-QElkhDCJzyxrFf4H9omRDNHMeIa8Z7k8VK6PhiKLLMNKagQzjAtTJQPc_Gaoj5bj66MzQQPQ-I3TSLEuUH6YcBtGv6e507Blb4Qi05u3bno004WmEMqxlf1le_gU'); opacity: 0.9;">
+</div>
+<!-- Overlay to ensure text legibility if needed, or just aesthetic tint -->
+<div class="absolute inset-0 bg-primary/5 rounded-full"></div>
+</div>
+<!-- Floating small icon accent -->
+<div class="absolute -bottom-2 -right-2 bg-surface-light dark:bg-surface-dark p-3 rounded-full shadow-md text-primary animate-bounce" style="animation-duration: 3s;">
+<span class="material-symbols-outlined text-3xl">favorite</span>
+</div>
+</div>
+<!-- Text Content -->
+<div class="space-y-4 max-w-xs mx-auto">
+<h1 class="text-[28px] font-bold leading-tight tracking-tight text-text-main-light dark:text-text-main-dark">
+                    오늘 어색함이 조금은 줄었어?
+                </h1>
+<p class="text-text-sub-light dark:text-text-sub-dark text-base font-normal leading-relaxed">
+                    작은 대답들이 모여서 우리 반이 만들어졌어.<br/>
+                    개인 점수나 순위는 없고,<br/>
+                    오늘은 연결만 남겨요.
+                </p>
+</div>
+<!-- Spacer to push content up slightly on larger screens -->
+<div class="flex-1 min-h-[40px]"></div>
+<!-- Action Buttons -->
+<div class="w-full flex flex-col gap-3 mt-auto">
+<button data-nav="next" class="group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-6 bg-primary hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20">
+<span class="relative z-10 text-primary-foreground text-lg font-bold tracking-wide">다음</span>
+<div class="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-white/20 transition-transform duration-300"></div>
+</button>
+<button data-nav="finish" class="flex w-full cursor-pointer items-center justify-center rounded-full h-14 px-6 bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-text-sub-light dark:text-text-sub-dark text-base font-medium transition-colors">
+<span>바로 끝내기</span>
+</button>
+</div>
+</main>
+<!-- Bottom Safe Area Spacer -->
+<div class="h-6 w-full"></div>
+</div>
+</body></html>

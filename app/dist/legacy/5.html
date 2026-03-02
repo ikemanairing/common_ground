@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>질문 답변 입력 (1단계)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee7c2b", // Warm peach/orange from the provided code
+                        "primary-light": "#fff1e6", // Lighter peach for backgrounds
+                        "primary-dark": "#c25e1b", // Darker peach for hover/active
+                        "background-light": "#fcfaf8", // Warm white/off-white
+                        "background-dark": "#221810", // Dark brown/black
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2d241e",
+                        "text-main": "#1b130d",
+                        "text-secondary": "#9a6c4c",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<script src="./mobile-app-nav.js" defer></script>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 font-display min-h-screen flex flex-col items-center justify-center p-0 m-0">
+<div class="relative flex h-full min-h-screen w-full max-w-md flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden mx-auto">
+<!-- Top Navigation Bar -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<button aria-label="Go back" class="text-text-main dark:text-slate-100 flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-primary/10 transition-colors" data-nav="back">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h2 class="text-text-main dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">
+                Icebreaker
+            </h2>
+</header>
+<!-- Progress Indicator -->
+<div class="flex flex-col w-full items-center justify-center pt-2 pb-6 px-6">
+<div class="flex w-full justify-between items-center mb-2">
+<span class="text-sm font-medium text-primary">Step 1</span>
+<span class="text-sm font-medium text-text-secondary dark:text-slate-400">1 / 8</span>
+</div>
+<div class="h-2 w-full rounded-full bg-[#e7d9cf] dark:bg-gray-700 overflow-hidden">
+<div class="h-full w-[12.5%] rounded-full bg-primary transition-all duration-300 ease-out"></div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col px-6 pb-6 overflow-y-auto no-scrollbar">
+<!-- Question Section -->
+<div class="flex-1 flex flex-col justify-center items-center py-8">
+<div class="w-full">
+<span class="inline-block px-3 py-1 mb-4 rounded-full bg-primary-light dark:bg-primary/20 text-primary text-xs font-bold tracking-wide uppercase">
+                        Question 01
+                    </span>
+<h1 class="text-text-main dark:text-slate-100 tracking-tight text-[32px] font-bold leading-tight text-left mb-4 break-keep">
+                        요즘 가장 재밌게 본<br/>
+<span class="text-primary">콘텐츠</span> 1개는?
+                    </h1>
+<p class="text-text-secondary dark:text-slate-400 text-base font-normal leading-relaxed text-left mb-8">
+                        친구들과 공유하고 싶은 영화, 드라마, 혹은 유튜브 채널이 있다면 알려주세요.
+                    </p>
+</div>
+<!-- Input Field -->
+<div class="w-full">
+<label class="block w-full">
+<div class="relative">
+<textarea class="form-textarea w-full min-h-[120px] resize-none rounded-2xl text-text-main dark:text-slate-100 placeholder:text-[#9a6c4c]/60 dark:placeholder:text-slate-500 bg-surface-light dark:bg-surface-dark border border-[#e7d9cf] dark:border-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/20 p-5 text-lg font-normal leading-relaxed transition-all shadow-sm" placeholder="영화, 드라마, 유튜브 등 자유롭게 적어주세요..."></textarea>
+<div class="absolute bottom-4 right-4 text-xs text-text-secondary dark:text-slate-500 font-medium">
+                                0 / 100
+                            </div>
+</div>
+</label>
+</div>
+</div>
+<!-- Spacer to push button to bottom on tall screens -->
+<div class="flex-1"></div>
+</main>
+<!-- Bottom Action Button -->
+<div class="flex px-6 py-6 bg-background-light dark:bg-background-dark sticky bottom-0 w-full z-10">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 bg-primary hover:bg-primary-dark text-white text-lg font-bold leading-normal tracking-[0.015em] transition-all shadow-lg shadow-primary/30 active:scale-[0.98]" data-nav="next">
+<span class="mr-2">다음</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

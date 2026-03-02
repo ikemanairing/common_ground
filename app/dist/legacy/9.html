@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>오늘을 정리하는 한 문장</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee8c2b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2d241b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans KR", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Hide scrollbar for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<script src="./mobile-app-nav.js" defer></script>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-x-hidden antialiased">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-900 dark:text-slate-100" data-nav="back">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-slate-900 dark:text-slate-100">오늘의 정리</h1>
+<div class="flex items-center justify-center w-12 text-primary font-bold text-base">4/5</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-5 pb-24 pt-2 flex flex-col w-full max-w-md mx-auto">
+<!-- Header Section -->
+<div class="mb-8 mt-4">
+<h2 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white mb-2">
+                오늘의 의미를<br/>한 줄로 말하면
+            </h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm">가장 마음에 와닿는 문장을 선택해주세요.</p>
+</div>
+<!-- Radio Options Container -->
+<form class="space-y-4 flex-1">
+<!-- Option 1 -->
+<label class="group relative block cursor-pointer">
+<input class="peer sr-only" name="summary" type="radio" value="1"/>
+<div class="relative overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border-2 border-transparent peer-checked:border-primary peer-checked:bg-primary/5 transition-all duration-300 ease-out h-[160px] flex flex-col justify-end p-5">
+<!-- Background Image Overlay -->
+<div class="absolute inset-0 z-0 bg-cover bg-center opacity-70 group-hover:opacity-80 transition-opacity" data-alt="Group of diverse friends laughing together outdoors" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7_Wood2YMa-D_8kyt_jvBZCXli4hVkqQfZhrv0EIiwpi1PbwKn0xfS4doG4Ol09fgOByZmdBJk-_zekMPt7rrn1ywHEaRoQw9RdaGYyUEi8DSMq4ETAAVHYvooaJvNPoZx1YE2cED072knnfM7bj2xYyfPXpv1DqszSUOQbKUF5sy3DvGJ5OJCeuysYLu8mJ82jxj5NlkSrbP58Tup20PwGXGuaJIHBGyXNDz8YVk4fCUH3VgGWKjXP9ypvM31UuBqzz38D7WtTw');">
+</div>
+<!-- Checkmark Icon -->
+<div class="absolute top-4 right-4 z-10 w-6 h-6 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center peer-checked:bg-primary text-transparent peer-checked:text-white transition-all scale-90 peer-checked:scale-100 opacity-0 peer-checked:opacity-100">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<!-- Text Content -->
+<div class="relative z-10 w-full pr-8">
+<p class="text-white text-lg font-bold leading-snug drop-shadow-md">
+                            우리 반은 생각보다<br/>다양하고 재밌을 것 같다.
+                        </p>
+</div>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="group relative block cursor-pointer">
+<input class="peer sr-only" name="summary" type="radio" value="2"/>
+<div class="relative overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border-2 border-transparent peer-checked:border-primary peer-checked:bg-primary/5 transition-all duration-300 ease-out h-[160px] flex flex-col justify-end p-5">
+<div class="absolute inset-0 z-0 bg-cover bg-center opacity-70 group-hover:opacity-80 transition-opacity" data-alt="Two people talking intimately in a cozy cafe setting" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFb6drhCd7AOx2Po2JQ89JQKi1ZK_SWaLqQwDMIcqUd2plFip80SwFFVebdEM4PwqhZjuxp0NKsnwm9_GgoaDgcntlFhjpGnFrci4h_X7Rd8h3Dp_UVjmwo5P6Z3rsp9FwGkcIIpW6vGXxxuhceG-QiwaiAIJNl9d5nBzMgtX45xqST0IHbIExVLNFPt_Am1bZdnhslpuB9cZ5VH4Te6EwSAbNsPdwixS2bVYhiRLEXWL0Bhwnmws0dUQh9h2uPBTVDDyxOA5Ta3A');">
+</div>
+<div class="absolute top-4 right-4 z-10 w-6 h-6 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center peer-checked:bg-primary text-transparent peer-checked:text-white transition-all scale-90 peer-checked:scale-100 opacity-0 peer-checked:opacity-100">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="relative z-10 w-full pr-8">
+<p class="text-white text-lg font-bold leading-snug drop-shadow-md">
+                            처음은 어색하지만<br/>공통점만으로 대화는 시작된다.
+                        </p>
+</div>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="group relative block cursor-pointer">
+<input checked="" class="peer sr-only" name="summary" type="radio" value="3"/>
+<div class="relative overflow-hidden rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm border-2 border-transparent peer-checked:border-primary peer-checked:bg-primary/5 transition-all duration-300 ease-out h-[160px] flex flex-col justify-end p-5">
+<div class="absolute inset-0 z-0 bg-cover bg-center opacity-70 group-hover:opacity-80 transition-opacity" data-alt="A warm friendly handshake or greeting gesture" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuAuSPLYYTBZvOIm_nYb8yPawHoOGrPKdlw_lOXytPRWkJpPvxtLhGsX66mg6TaiLWXQ3Jan83sxOr5xxeV7WnfkpAisMw3m1umiKGReNiuDZSc3slB72mCcM62TPfyxqB7y-iWHlilF6H9EEIx7YtLfEwNJfYN3KramQyb9D09nNAK364VgP6UM94GVOr3lLu7MfNX_07csNFZCPa03ASCDpdtdJgc1TDdGvn6kduotlEdEx0ZzAp9oHPiBOKx1_ZPqRuhVY35_qLQ');">
+</div>
+<div class="absolute top-4 right-4 z-10 w-6 h-6 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center peer-checked:bg-primary text-transparent peer-checked:text-white transition-all scale-90 peer-checked:scale-100 opacity-0 peer-checked:opacity-100">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="relative z-10 w-full pr-8">
+<p class="text-white text-lg font-bold leading-snug drop-shadow-md">
+                            완벽할 필요 없이<br/>한 번 더 인사하면 충분하다.
+                        </p>
+</div>
+</div>
+</label>
+</form>
+</main>
+<!-- Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-lg border-t border-slate-200/50 dark:border-slate-800/50 z-50">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-primary/30 transition-all active:scale-[0.98] flex items-center justify-center gap-2" data-nav="next">
+<span>이 문장 저장하고 계속</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

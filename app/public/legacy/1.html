@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>온보딩: 입장 및 프로필 설정</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "sage-50": "#f4f7f5",
+                "sage-100": "#e3ebe5",
+                "sage-500": "#8da399",
+                "sage-600": "#5d7067",
+                "peach-100": "#ffe5d9",
+                "peach-200": "#ffd7c4",
+                "peach-500": "#ffaf87",
+                "beige-100": "#fdfbf7",
+                "warm-gray-800": "#4a4a4a",
+                "warm-gray-600": "#78716c",
+                },
+                fontFamily: {
+                "sans": ["Noto Sans KR", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2.5rem", "full": "9999px"},
+                boxShadow: {
+                    "soft": "0 4px 20px -2px rgba(141, 163, 153, 0.15)",
+                    "inner-soft": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.02)"
+                }
+            },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<script src="./mobile-app-nav.js" defer></script>
+  </head>
+<body class="bg-sage-50 min-h-screen flex flex-col items-center justify-center p-4">
+<div class="relative w-full max-w-[400px] mx-auto bg-beige-100 min-h-[844px] shadow-2xl overflow-hidden rounded-[2.5rem] border-[8px] border-warm-gray-800">
+<div class="flex flex-col h-full relative z-10">
+<div class="flex items-center p-4 pb-2 justify-between">
+<button class="p-2 rounded-full hover:bg-sage-100 transition-colors text-warm-gray-600" data-nav="back">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-warm-gray-800 text-lg font-medium leading-tight tracking-[-0.015em] flex-1 text-center">오리엔테이션</h2>
+<button class="p-2 rounded-full hover:bg-sage-100 transition-colors text-warm-gray-600">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex flex-col items-center px-6 pt-6 pb-8">
+<div class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-peach-100 text-peach-500 text-xs font-bold mb-5 tracking-wide">
+                    LIVE SESSION
+                </div>
+<h1 class="text-warm-gray-800 tracking-tight text-[28px] font-bold leading-[1.3] text-center mb-8">
+                    2026학년도 신학기<br/>
+<span class="text-sage-600 font-medium">2학년 3반</span> 마음잇기 OT
+                </h1>
+<div class="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-soft relative mb-8 group ring-4 ring-white">
+<div class="absolute inset-0 bg-gradient-to-t from-warm-gray-800/40 to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover filter sepia-[0.2]" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbGNR1NJRmODtcF-J1tJ6Bh9x_7_-fUXmO8hR_CqBQwg_qMP_8-kHUkzqCU2I_-9HYAHs5_wo4z3HrG15kqv4tdXWUwl4pSI-zBKp-IxyuQy_cE7GQ1O2LSxsqDXLgkz6pr-h3aUxr9HPFvOramKwuJ3qnhsZLA3K4YM4ExZqg9Bp3ZiCnXHNGkp26Uwch9M3ntaczvd3bTy4gUKIj9Odp4ykc1mNKMZh9MFS_wRe-vUdSstzT8_N_0fmTlQYE7Gf3RtkBZThsdFk");'>
+</div>
+<div class="absolute bottom-4 left-5 z-20 flex items-center gap-2.5">
+<span class="flex h-2.5 w-2.5 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-peach-500 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-peach-500"></span>
+</span>
+<span class="text-white text-sm font-medium drop-shadow-md">32명의 친구들이 대화 중이에요</span>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 rounded-xl h-14 px-8 bg-sage-600 hover:bg-sage-500 transition-colors text-white text-lg font-medium shadow-soft mb-8" data-nav="next">
+<span>입장하기</span>
+<span class="material-symbols-outlined text-[20px]">login</span>
+</button>
+<div class="w-full flex items-center gap-4 mb-8">
+<div class="h-px flex-1 bg-sage-100"></div>
+<span class="text-xs text-sage-500 font-medium">환영합니다</span>
+<div class="h-px flex-1 bg-sage-100"></div>
+</div>
+</div>
+<div class="flex flex-col px-6 pb-8 flex-1 bg-white rounded-t-[2.5rem] shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.05)]">
+<div class="w-12 h-1.5 bg-sage-100 rounded-full mx-auto mt-4 mb-6"></div>
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-warm-gray-800 text-xl font-bold">프로필 설정</h3>
+<span class="text-sage-500 text-sm bg-sage-50 px-3 py-1 rounded-full">1 / 3 단계</span>
+</div>
+<div class="bg-beige-100 border border-sage-100 rounded-2xl p-6 flex flex-col items-center text-center shadow-inner-soft">
+<div class="relative mb-5">
+<div class="w-24 h-24 rounded-full bg-white p-1.5 shadow-soft ring-1 ring-sage-100">
+<div class="w-full h-full rounded-full bg-sage-50 flex items-center justify-center overflow-hidden relative">
+<img alt="Illustrated avatar of a student with glasses" class="w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCcGSVBrttlM8CsP1JzrclbEZC1vSnNlKh7jgl9P642T3Gins2xCYEiJtzd4I5EJiDxhB5HSkaD6xrIndpt5PjkXJtqjxZgf-11-UKh4za9AvOtP263rSw9jzBSE5mRoabl2KB-kJsrv7uRNUkayOyp9K8sv5X-0WxFWryeEJ46HoqqV6AhGYthOodw04vW9RkMWc9OClvvQ_Vv1Mcp4Y4NNKHHXTryXJgSSTP3Cv0jEKi07iiijaUtf5o6EaVKiGOpY04pN45zMg"/>
+</div>
+</div>
+<button class="absolute bottom-0 right-0 p-2 bg-white border border-sage-100 text-sage-600 rounded-full shadow-md hover:bg-sage-50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">autorenew</span>
+</button>
+</div>
+<h4 class="text-warm-gray-800 text-2xl font-bold mb-1">새싹17</h4>
+<p class="text-sage-500 text-sm font-medium mb-5">랜덤으로 배정된 닉네임이에요</p>
+<div class="bg-white rounded-xl p-4 w-full mb-5 border border-sage-100">
+<p class="text-warm-gray-600 text-sm leading-relaxed">
+                            "진짜 이름은 잠시 내려두세요.<br/>오늘은 편안하게 마음만 나눠요."
+                        </p>
+</div>
+<div class="w-full flex gap-3">
+<button class="flex-1 py-3.5 rounded-xl border border-sage-200 text-sage-600 font-medium text-sm hover:bg-sage-50 transition-colors">
+                            다시 뽑기
+                        </button>
+<button class="flex-1 py-3.5 rounded-xl bg-peach-500 text-white font-bold text-sm hover:bg-peach-500/90 transition-opacity shadow-sm" data-nav="next">
+                            확인
+                        </button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 w-full pb-6 pt-2 flex justify-center z-20 pointer-events-none">
+<div class="h-1.5 w-1/3 bg-warm-gray-800/10 rounded-full"></div>
+</div>
+</div>
+</div>
+
+</body></html>

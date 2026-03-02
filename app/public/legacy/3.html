@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>나 카드: 대화 주제 및 활동</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF9E80","primary-light": "#FFF3E0","secondary": "#81D4FA","accent": "#FFAB91", 
+                        "background-light": "#FAFAFA",
+                        "text-main": "#455A64","text-sub": "#90A4AE",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Apple SD Gothic Neo", "Malgun Gothic", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+                    boxShadow: {
+                        "soft": "0 4px 20px rgba(0, 0, 0, 0.05)",
+                        "inner-soft": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.02)"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+            font-family: 'Plus Jakarta Sans', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<script src="./mobile-app-nav.js" defer></script>
+  </head>
+<body class="bg-background-light text-text-main font-display min-h-screen flex flex-col overflow-x-hidden">
+<header class="flex items-center px-6 pt-6 pb-4 justify-between sticky top-0 z-10 bg-background-light/95 backdrop-blur-sm">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm border border-slate-100 hover:bg-slate-50 transition-colors text-text-sub" data-nav="back">
+<span class="material-symbols-outlined" style="font-size: 20px;">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight text-text-main">나의 카드 만들기</h2>
+<div class="size-10"></div> 
+</header>
+<div class="flex w-full flex-row items-center justify-center gap-2 py-2 px-6 mb-4">
+<div class="h-2 w-2 rounded-full bg-primary/20"></div>
+<div class="h-2 w-2 rounded-full bg-primary/20"></div>
+<div class="h-2 w-8 rounded-full bg-primary shadow-sm"></div> 
+<div class="h-2 w-2 rounded-full bg-primary/20"></div>
+<div class="h-2 w-2 rounded-full bg-primary/20"></div>
+</div>
+<main class="flex-1 flex flex-col px-6 pb-32">
+<section class="mb-10 animate-fade-in-up">
+<h1 class="text-[26px] font-bold leading-tight text-text-main mb-3">
+                어떤 이야기를 나누고 싶나요?
+            </h1>
+<p class="text-text-sub text-[15px] font-medium mb-6 leading-relaxed">
+                친구들과 자연스럽게 대화할 수 있는 주제를<br/>2가지 선택해주세요.
+            </p>
+<div class="flex gap-3 flex-wrap">
+<button class="group flex h-[46px] shrink-0 items-center justify-center gap-x-2 rounded-full border-2 border-primary bg-primary-light pl-5 pr-5 transition-all shadow-sm">
+<span class="text-primary-dark text-[15px] font-bold leading-normal text-[#D84315]">영화 &amp; TV</span>
+<span class="material-symbols-outlined text-[#D84315]" style="font-size: 18px; font-weight: 600;">check</span>
+</button>
+<button class="flex h-[46px] shrink-0 items-center justify-center gap-x-2 rounded-full border border-slate-200 bg-white hover:border-primary/30 hover:bg-primary-light/30 pl-5 pr-5 transition-all shadow-sm text-text-main">
+<span class="text-[15px] font-medium leading-normal">음악 감상</span>
+</button>
+<button class="flex h-[46px] shrink-0 items-center justify-center gap-x-2 rounded-full border-2 border-primary bg-primary-light pl-5 pr-5 transition-all shadow-sm">
+<span class="text-primary-dark text-[15px] font-bold leading-normal text-[#D84315]">게임</span>
+<span class="material-symbols-outlined text-[#D84315]" style="font-size: 18px; font-weight: 600;">check</span>
+</button>
+<button class="flex h-[46px] shrink-0 items-center justify-center gap-x-2 rounded-full border border-slate-200 bg-white hover:border-primary/30 hover:bg-primary-light/30 pl-5 pr-5 transition-all shadow-sm text-text-main">
+<span class="text-[15px] font-medium leading-normal">맛집 탐방</span>
+</button>
+<button class="flex h-[46px] shrink-0 items-center justify-center gap-x-2 rounded-full border border-slate-200 bg-white hover:border-primary/30 hover:bg-primary-light/30 pl-5 pr-5 transition-all shadow-sm text-text-main">
+<span class="text-[15px] font-medium leading-normal">취미 생활</span>
+</button>
+<button class="flex h-[46px] shrink-0 items-center justify-center gap-x-2 rounded-full border border-slate-200 bg-white hover:border-primary/30 hover:bg-primary-light/30 pl-5 pr-5 transition-all shadow-sm text-text-main">
+<span class="text-[15px] font-medium leading-normal">스포츠</span>
+</button>
+<button class="flex h-[46px] shrink-0 items-center justify-center gap-x-2 rounded-full border border-slate-200 bg-white hover:border-primary/30 hover:bg-primary-light/30 pl-5 pr-5 transition-all shadow-sm text-text-main">
+<span class="text-[15px] font-medium leading-normal">여행</span>
+</button>
+<button class="flex h-[46px] shrink-0 items-center justify-center gap-x-2 rounded-full border border-slate-200 bg-white hover:border-primary/30 hover:bg-primary-light/30 pl-5 pr-5 transition-all shadow-sm text-text-main">
+<span class="text-[15px] font-medium leading-normal">학교 생활</span>
+</button>
+<button class="flex h-[46px] shrink-0 items-center justify-center gap-x-2 rounded-full border border-slate-200 bg-white hover:border-primary/30 hover:bg-primary-light/30 pl-5 pr-5 transition-all shadow-sm text-text-main">
+<span class="text-[15px] font-medium leading-normal">패션/뷰티</span>
+</button>
+</div>
+</section>
+<div class="h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-10"></div>
+<section>
+<h2 class="text-[22px] font-bold leading-tight text-text-main mb-3">
+                같이 해보고 싶은 활동은요?
+            </h2>
+<p class="text-text-sub text-sm font-medium mb-6">
+                새로운 친구와 함께하고 싶은 활동 1가지를 골라주세요.
+            </p>
+<div class="grid grid-cols-2 gap-4">
+<button class="group relative flex flex-col items-start gap-3 p-5 rounded-2xl border border-slate-100 bg-white shadow-soft hover:shadow-md hover:-translate-y-0.5 transition-all text-left">
+<div class="p-2.5 rounded-xl bg-orange-50 text-orange-400 group-hover:bg-orange-100 transition-colors">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<h3 class="font-bold text-text-main text-[15px]">점심 같이 먹기</h3>
+<p class="text-xs text-text-sub mt-1">급식실이나 매점</p>
+</div>
+</button>
+<button class="relative flex flex-col items-start gap-3 p-5 rounded-2xl border-2 border-primary bg-primary-light/20 transition-all text-left shadow-md">
+<div class="absolute top-4 right-4 flex items-center justify-center size-6 rounded-full bg-primary text-white shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div class="p-2.5 rounded-xl bg-blue-50 text-blue-400">
+<span class="material-symbols-outlined">sports_basketball</span>
+</div>
+<div>
+<h3 class="font-bold text-text-main text-[15px]">운동하기</h3>
+<p class="text-xs text-text-sub mt-1">체육관이나 운동장</p>
+</div>
+</button>
+<button class="group relative flex flex-col items-start gap-3 p-5 rounded-2xl border border-slate-100 bg-white shadow-soft hover:shadow-md hover:-translate-y-0.5 transition-all text-left">
+<div class="p-2.5 rounded-xl bg-purple-50 text-purple-400 group-hover:bg-purple-100 transition-colors">
+<span class="material-symbols-outlined">stadia_controller</span>
+</div>
+<div>
+<h3 class="font-bold text-text-main text-[15px]">게임 한 판</h3>
+<p class="text-xs text-text-sub mt-1">모바일이나 PC방</p>
+</div>
+</button>
+<button class="group relative flex flex-col items-start gap-3 p-5 rounded-2xl border border-slate-100 bg-white shadow-soft hover:shadow-md hover:-translate-y-0.5 transition-all text-left">
+<div class="p-2.5 rounded-xl bg-pink-50 text-pink-400 group-hover:bg-pink-100 transition-colors">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<h3 class="font-bold text-text-main text-[15px]">같이 공부하기</h3>
+<p class="text-xs text-text-sub mt-1">도서관이나 스터디카페</p>
+</div>
+</button>
+</div>
+</section>
+</main>
+<div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-background-light via-background-light/90 to-transparent pt-12">
+<button class="w-full h-14 bg-primary hover:bg-[#FF8A65] text-white font-bold text-lg rounded-2xl transition-all shadow-lg shadow-primary/30 flex items-center justify-center gap-2 active:scale-[0.98]" data-nav="next">
+            다음 단계로
+            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+
+</body></html>

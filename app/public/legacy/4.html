@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>대화 시작 전 약속 및 유의사항</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "warm-bg": "#FFFBF7",
+                        "warm-text": "#5D5449",
+                        "warm-primary": "#FF9F76",
+                        "warm-accent": "#FFD6A5",
+                        "soft-gray": "#F2EFEB",
+                        "text-light": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        "display": ["Noto Sans KR", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "2.5rem", "full": "9999px" },
+                    boxShadow: {
+                        "soft": "0 10px 40px -10px rgba(255, 159, 118, 0.15)",
+                        "card": "0 4px 20px -5px rgba(93, 84, 73, 0.05)"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: #f3f4f6;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #E5E7EB;
+            border-radius: 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<script src="./mobile-app-nav.js" defer></script>
+  </head>
+<body class="font-display antialiased text-warm-text min-h-screen flex items-center justify-center">
+<div class="relative flex flex-col w-full max-w-md mx-auto h-[100dvh] bg-warm-bg shadow-2xl overflow-hidden sm:rounded-3xl sm:h-[90vh] sm:border sm:border-white">
+<div class="flex items-center px-6 pt-6 pb-2 justify-between shrink-0 z-10">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full bg-white hover:bg-soft-gray transition-colors shadow-sm" data-nav="back">
+<span class="material-symbols-outlined text-warm-text/70">close</span>
+</button>
+<div class="w-10"></div>
+</div>
+<div class="flex-1 overflow-y-auto px-6 pb-40 custom-scrollbar">
+<div class="flex flex-col items-center pt-4 pb-8">
+<div class="relative mb-6">
+<div class="w-20 h-20 rounded-full bg-warm-accent/30 flex items-center justify-center animate-pulse"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-warm-primary text-[40px]">spa</span>
+</div>
+</div>
+<h2 class="text-warm-text text-2xl font-bold leading-tight text-center mb-3 tracking-tight">
+                    따뜻한 대화를 위한 약속
+                </h2>
+<p class="text-warm-text/70 text-sm font-normal leading-relaxed text-center max-w-[280px]">
+                    랜덤한 반 친구와 대화가 시작됩니다.<br/>질문이 나오면 답해주세요.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<div class="px-1 mb-2">
+<h4 class="text-warm-text/50 text-xs font-bold uppercase tracking-wider">답변 시 유의사항</h4>
+</div>
+<div class="flex flex-col p-6 bg-white rounded-2xl border border-warm-accent/20 shadow-card hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center gap-3 mb-2">
+<div class="p-2 bg-orange-50 rounded-full text-warm-primary">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</div>
+<h3 class="text-warm-text font-bold text-[15px] tracking-tight">진솔한 마음 담기</h3>
+</div>
+<p class="text-warm-text/60 text-[13px] leading-relaxed pl-[3.25rem]">
+                        자신의 진짜 이야기를 들려주세요. 솔직한 답변이 우리를 더 가깝게 만들어줍니다.
+                    </p>
+</div>
+<div class="flex flex-col p-6 bg-white rounded-2xl border border-warm-accent/20 shadow-card hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center gap-3 mb-2">
+<div class="p-2 bg-blue-50 rounded-full text-blue-400">
+<span class="material-symbols-outlined text-[20px]">diversity_1</span>
+</div>
+<h3 class="text-warm-text font-bold text-[15px] tracking-tight">상대방 존중하기</h3>
+</div>
+<p class="text-warm-text/60 text-[13px] leading-relaxed pl-[3.25rem]">
+                        나와 다른 생각이더라도 귀 기울여주세요. 따뜻한 리액션은 큰 힘이 됩니다.
+                    </p>
+</div>
+<div class="flex flex-col p-6 bg-white rounded-2xl border border-warm-accent/20 shadow-card hover:shadow-md transition-shadow duration-300">
+<div class="flex items-center gap-3 mb-2">
+<div class="p-2 bg-green-50 rounded-full text-green-400">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<h3 class="text-warm-text font-bold text-[15px] tracking-tight">비밀 유지하기</h3>
+</div>
+<p class="text-warm-text/60 text-[13px] leading-relaxed pl-[3.25rem]">
+                        여기서 나눈 대화는 우리 둘만의 비밀이에요. 캡처나 외부 공유는 절대 금지!
+                    </p>
+</div>
+</div>
+<div class="h-8"></div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-warm-bg via-warm-bg to-transparent pt-12 z-20">
+<label class="flex gap-x-3 items-center mb-6 group cursor-pointer justify-center select-none bg-white/50 py-3 rounded-xl border border-transparent hover:border-warm-accent/30 transition-all backdrop-blur-sm">
+<div class="relative flex items-center">
+<input class="peer h-6 w-6 cursor-pointer appearance-none rounded-full border-2 border-warm-text/20 bg-white transition-all checked:border-warm-primary checked:bg-warm-primary hover:border-warm-primary focus:ring-0 focus:ring-offset-0" id="agree-check" onchange="document.getElementById('start-btn').disabled = !this.checked; document.getElementById('start-btn').classList.toggle('opacity-50', !this.checked); document.getElementById('start-btn').classList.toggle('cursor-not-allowed', !this.checked);" type="checkbox"/>
+<span class="material-symbols-outlined absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[16px] text-white opacity-0 peer-checked:opacity-100 pointer-events-none font-bold">check</span>
+</div>
+<div class="">
+<p class="text-warm-text font-bold text-[15px] group-hover:text-warm-primary transition-colors">위 약속을 지키며 대화할게요</p>
+</div>
+</label>
+<button class="w-full bg-warm-primary hover:bg-[#FF8A5B] text-white font-bold text-lg py-4 rounded-2xl transition-all active:scale-[0.98] shadow-soft flex items-center justify-center gap-2 opacity-50 cursor-not-allowed disabled:hover:bg-warm-primary disabled:active:scale-100" data-nav="next" disabled="" id="start-btn">
+<span>시작하기</span>
+<span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+</button>
+</div>
+</div>
+
+</body></html>

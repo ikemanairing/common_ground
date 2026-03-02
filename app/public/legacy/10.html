@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>내일을 위한 작은 미션</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee8c2b",
+                        "primary-content": "#4a2a0a",
+                        "background-light": "#fcfaf8",
+                        "background-dark": "#221910",
+                        "surface-light": "#f3ede7",
+                        "surface-dark": "#36291f",
+                        "text-main": "#1b140d",
+                        "text-muted": "#9a734c",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<script src="./mobile-app-nav.js" defer></script>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col items-center justify-center">
+<!-- Mobile Container -->
+<div class="relative flex h-full w-full max-w-md flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden min-h-screen">
+<!-- Header -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<button aria-label="Go back" class="text-text-main dark:text-slate-100 flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-surface-light dark:hover:bg-surface-dark transition-colors" data-nav="back">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h2 class="text-text-main dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">
+                내일을 위한 미션
+            </h2>
+</header>
+<!-- Content Scroll Area -->
+<main class="flex-1 flex flex-col p-4 pb-24 overflow-y-auto">
+<!-- Hero Title -->
+<div class="pb-6 pt-2">
+<h1 class="text-text-main dark:text-slate-100 tracking-tight text-[28px] font-bold leading-[1.3] text-left">
+                    오늘 여기서 끝내면<br/>내일도 똑같이 어색해.<br/>
+<span class="text-primary">딱 1개만</span> 해보자.
+                </h1>
+<p class="mt-3 text-text-muted dark:text-slate-400 text-sm font-medium">
+                    가장 할 수 있을 것 같은 미션을 골라보세요.
+                </p>
+</div>
+<!-- Mission Accordions -->
+<div class="flex flex-col gap-3">
+<!-- Mission 1 -->
+<details class="group rounded-xl bg-surface-light dark:bg-surface-dark overflow-hidden transition-all duration-300 border border-transparent hover:border-primary/20 open:bg-primary/5 dark:open:bg-primary/10">
+<summary class="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 list-none select-none">
+<div class="flex items-center gap-3">
+<div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-primary/40 group-open:border-primary group-open:bg-primary transition-colors">
+<span class="material-symbols-outlined text-white text-[16px] opacity-0 group-open:opacity-100">check</span>
+</div>
+<p class="text-text-main dark:text-slate-100 text-[15px] font-semibold leading-normal">
+                                옆자리 친구에게 '점심 뭐 먹어?' 묻기
+                            </p>
+</div>
+<span class="material-symbols-outlined text-text-muted dark:text-slate-400 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-5 pb-5 pl-[3.25rem]">
+<div class="relative pl-3 border-l-2 border-primary/30">
+<p class="text-text-muted dark:text-slate-300 text-sm font-normal leading-relaxed">
+<span class="block text-xs font-bold text-primary mb-1 uppercase tracking-wider">Script</span>
+                                "점심 보통 급식 먹어, 아니면 매점 가? 좋아하는 메뉴 있어?" 라고 자연스럽게 이어가보세요. 식사는 가장 쉬운 공통 관심사입니다.
+                            </p>
+</div>
+</div>
+</details>
+<!-- Mission 2 -->
+<details class="group rounded-xl bg-surface-light dark:bg-surface-dark overflow-hidden transition-all duration-300 border border-transparent hover:border-primary/20 open:bg-primary/5 dark:open:bg-primary/10">
+<summary class="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 list-none select-none">
+<div class="flex items-center gap-3">
+<div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-primary/40 group-open:border-primary group-open:bg-primary transition-colors">
+<span class="material-symbols-outlined text-white text-[16px] opacity-0 group-open:opacity-100">check</span>
+</div>
+<p class="text-text-main dark:text-slate-100 text-[15px] font-semibold leading-normal">
+                                앞자리 친구에게 '필기구 빌려줄 수 있어?' 묻기
+                            </p>
+</div>
+<span class="material-symbols-outlined text-text-muted dark:text-slate-400 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-5 pb-5 pl-[3.25rem]">
+<div class="relative pl-3 border-l-2 border-primary/30">
+<p class="text-text-muted dark:text-slate-300 text-sm font-normal leading-relaxed">
+<span class="block text-xs font-bold text-primary mb-1 uppercase tracking-wider">Script</span>
+                                "혹시 펜 남는 거 있어? 내가 깜빡하고 안 가져왔네." 빌린 후 돌려줄 때 "고마워 덕분에 살았어!" 라고 말하며 간식을 건네보세요.
+                            </p>
+</div>
+</div>
+</details>
+<!-- Mission 3 -->
+<details class="group rounded-xl bg-surface-light dark:bg-surface-dark overflow-hidden transition-all duration-300 border border-transparent hover:border-primary/20 open:bg-primary/5 dark:open:bg-primary/10">
+<summary class="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 list-none select-none">
+<div class="flex items-center gap-3">
+<div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-primary/40 group-open:border-primary group-open:bg-primary transition-colors">
+<span class="material-symbols-outlined text-white text-[16px] opacity-0 group-open:opacity-100">check</span>
+</div>
+<p class="text-text-main dark:text-slate-100 text-[15px] font-semibold leading-normal">
+                                선생님께 수업 끝나고 '질문이 있어요' 말걸기
+                            </p>
+</div>
+<span class="material-symbols-outlined text-text-muted dark:text-slate-400 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-5 pb-5 pl-[3.25rem]">
+<div class="relative pl-3 border-l-2 border-primary/30">
+<p class="text-text-muted dark:text-slate-300 text-sm font-normal leading-relaxed">
+<span class="block text-xs font-bold text-primary mb-1 uppercase tracking-wider">Script</span>
+                                "선생님, 아까 말씀하신 부분에서 이 내용이 조금 헷갈려서요." 질문은 선생님께 좋은 인상을 남기는 가장 빠른 방법입니다.
+                            </p>
+</div>
+</div>
+</details>
+<!-- Mission 4 -->
+<details class="group rounded-xl bg-surface-light dark:bg-surface-dark overflow-hidden transition-all duration-300 border border-transparent hover:border-primary/20 open:bg-primary/5 dark:open:bg-primary/10">
+<summary class="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 list-none select-none">
+<div class="flex items-center gap-3">
+<div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-primary/40 group-open:border-primary group-open:bg-primary transition-colors">
+<span class="material-symbols-outlined text-white text-[16px] opacity-0 group-open:opacity-100">check</span>
+</div>
+<p class="text-text-main dark:text-slate-100 text-[15px] font-semibold leading-normal">
+                                쉬는 시간에 '매점 같이 갈래?' 제안하기
+                            </p>
+</div>
+<span class="material-symbols-outlined text-text-muted dark:text-slate-400 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="px-5 pb-5 pl-[3.25rem]">
+<div class="relative pl-3 border-l-2 border-primary/30">
+<p class="text-text-muted dark:text-slate-300 text-sm font-normal leading-relaxed">
+<span class="block text-xs font-bold text-primary mb-1 uppercase tracking-wider">Script</span>
+                                "나 매점 갈 건데 같이 갈래? 아이스크림 내가 살게!" 작은 호의는 거절하기 어렵고 관계를 부드럽게 만듭니다.
+                            </p>
+</div>
+</div>
+</details>
+</div>
+</main>
+<!-- Bottom Fixed Area -->
+<div class="fixed bottom-0 w-full max-w-md bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-t border-surface-light dark:border-surface-dark p-6 pb-8 z-20">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-center gap-2 text-text-muted dark:text-slate-400">
+<span class="material-symbols-outlined text-[18px]">sentiment_satisfied</span>
+<p class="text-sm font-medium leading-normal text-center">
+                        첫날은 원래 어색해. 하지만 오늘은 말 걸 소재가 생겼어.
+                    </p>
+</div>
+<button class="group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 bg-primary text-primary-content dark:text-white dark:bg-primary font-bold text-[17px] shadow-lg shadow-primary/25 active:scale-[0.98] transition-all" data-nav="finish">
+<span class="relative z-10 flex items-center gap-2">
+                        미션 선택 완료 &amp; 끝내기
+                        <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+<div class="absolute inset-0 bg-white/20 dark:bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+</div>
+</div>
+</div>
+</body></html>
