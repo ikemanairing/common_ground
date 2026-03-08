@@ -76,6 +76,7 @@ export interface Step10Data {
   missionId?: string;
   missionScript?: string;
   confirmedAt?: string;
+  doneViewedAt?: string;
 }
 
 export interface FlowStepDataMap {

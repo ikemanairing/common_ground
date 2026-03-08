@@ -80,8 +80,9 @@ export default function Step3() {
     }
 
     updateStepData(3, { topics: selectedTopics, activity: selectedActivity });
-    completeStep(3);
-    navigate("/promise");
+    if (completeStep(3)) {
+      navigate("/promise");
+    }
   }, [completeStep, navigate, selectedActivity, selectedTopics, updateStepData]);
 
   return (

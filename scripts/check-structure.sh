@@ -11,6 +11,7 @@ docs/deploy.md
 docs/runbook.md
 scripts/check-structure.sh
 scripts/smoke-local.sh
+scripts/verify-app.sh
 "
 
 PLANNED_ITEMS="
@@ -43,7 +44,7 @@ for item in $PLANNED_ITEMS; do
 done
 
 printf "\nChecking script permissions...\n"
-for script in scripts/check-structure.sh scripts/smoke-local.sh; do
+for script in scripts/check-structure.sh scripts/smoke-local.sh scripts/verify-app.sh; do
   if [ -x "$ROOT_DIR/$script" ]; then
     printf "[ok] executable: %s\n" "$script"
   else

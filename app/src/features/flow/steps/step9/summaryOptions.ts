@@ -28,5 +28,3 @@ export const STEP9_SUMMARY_OPTIONS: SummaryOption[] = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAuSPLYYTBZvOIm_nYb8yPawHoOGrPKdlw_lOXytPRWkJpPvxtLhGsX66mg6TaiLWXQ3Jan83sxOr5xxeV7WnfkpAisMw3m1umiKGReNiuDZSc3slB72mCcM62TPfyxqB7y-iWHlilF6H9EEIx7YtLfEwNJfYN3KramQyb9D09nNAK364VgP6UM94GVOr3lLu7MfNX_07csNFZCPa03ASCDpdtdJgc1TDdGvn6kduotlEdEx0ZzAp9oHPiBOKx1_ZPqRuhVY35_qLQ",
   },
 ];
-
-export const STEP9_DEFAULT_SUMMARY_VALUE = "3";

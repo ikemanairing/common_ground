@@ -55,7 +55,7 @@ export default function StepQ3Screen({
           <button
             type="button"
             onClick={onBack}
-            aria-label="Go back"
+            aria-label="뒤로 가기"
             className="flex size-12 shrink-0 items-center justify-center rounded-full text-text-main transition-colors hover:bg-primary/10 dark:text-slate-100"
           >
             <span aria-hidden className="material-symbols-outlined text-[24px]">
@@ -73,7 +73,7 @@ export default function StepQ3Screen({
               <span aria-hidden className="material-symbols-outlined text-[14px]">
                 chat
               </span>
-              Step 3
+              질문 3
             </span>
             <span className="text-sm font-medium text-text-secondary dark:text-slate-400">
               3 / 8
@@ -96,7 +96,7 @@ export default function StepQ3Screen({
                   .join(" ")}
                 onAnimationEnd={onBadgeAnimationEnd}
               >
-                Question 03
+                질문 03
               </span>
               <h1 className="mb-4 min-h-[5rem] break-keep whitespace-pre-line text-left text-[32px] font-bold leading-tight tracking-tight text-text-main dark:text-slate-100">
                 {showTitle ? typedTitle : "\u00A0"}

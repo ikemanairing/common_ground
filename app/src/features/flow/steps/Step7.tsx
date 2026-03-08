@@ -35,7 +35,7 @@ export default function Step7() {
         continueMode,
         wrapViewedAt: new Date().toISOString(),
       });
-      completeStep(7);
+      return completeStep(7, continueMode === "finish" ? { nextStep: 10 } : undefined);
     },
     [completeStep, updateStepData],
   );
@@ -45,13 +45,15 @@ export default function Step7() {
   }, [navigate]);
 
   const handleNext = useCallback(() => {
-    markStep7("next");
-    navigate("/emotion");
+    if (markStep7("next")) {
+      navigate("/emotion");
+    }
   }, [markStep7, navigate]);
 
   const handleFinish = useCallback(() => {
-    markStep7("finish");
-    navigate("/mission");
+    if (markStep7("finish")) {
+      navigate("/mission");
+    }
   }, [markStep7, navigate]);
 
   return (

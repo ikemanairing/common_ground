@@ -67,10 +67,37 @@ export interface UseFlowStoreResult {
     stepNo: TStep,
     payload: Partial<FlowStepDataMap[TStep]>,
   ) => void;
-  completeStep: (stepNo: FlowStepNo) => void;
+  completeStep: (stepNo: FlowStepNo, options?: CompleteStepOptions) => boolean;
   canAccessStep: (stepNo: FlowStepNo) => boolean;
   resetFlow: () => void;
 }
+
+export interface CompleteStepOptions {
+  nextStep?: FlowStepNo;
+}
+
+export const completeFlowStep = (
+  previous: FlowState,
+  stepNo: FlowStepNo,
+  options?: CompleteStepOptions,
+): FlowState => {
+  const validation = validateStep(stepNo, previous);
+  if (!validation.isValid) {
+    return previous;
+  }
+
+  const now = new Date().toISOString();
+  return {
+    ...previous,
+    currentStep: options?.nextStep ?? NEXT_STEP_BY_STEP[stepNo],
+    completedSteps: {
+      ...previous.completedSteps,
+      [stepNo]: true,
+    },
+    completedAt: stepNo === LAST_FLOW_STEP ? now : previous.completedAt,
+    updatedAt: now,
+  };
+};
 
 export const useFlowStore = (): UseFlowStoreResult => {
   const state = useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
@@ -109,25 +136,14 @@ export const useFlowStore = (): UseFlowStoreResult => {
     });
   };
 
-  const completeStep = (stepNo: FlowStepNo): void => {
+  const completeStep = (stepNo: FlowStepNo, options?: CompleteStepOptions): boolean => {
+    let didComplete = false;
     setFlowState((previous) => {
-      const validation = validateStep(stepNo, previous);
-      if (!validation.isValid) {
-        return previous;
-      }
-
-      const now = new Date().toISOString();
-      return {
-        ...previous,
-        currentStep: NEXT_STEP_BY_STEP[stepNo],
-        completedSteps: {
-          ...previous.completedSteps,
-          [stepNo]: true,
-        },
-        completedAt: stepNo === LAST_FLOW_STEP ? now : previous.completedAt,
-        updatedAt: now,
-      };
+      const next = completeFlowStep(previous, stepNo, options);
+      didComplete = next !== previous;
+      return next;
     });
+    return didComplete;
   };
 
   const canAccessStep = (stepNo: FlowStepNo): boolean =>

@@ -1,4 +1,5 @@
 import type { Step5Data } from "../../state/flowTypes";
+import { callSupabaseFunction } from "../../../../lib/api/functionClient";
 
 type FunctionError = {
   code?: string;
@@ -99,64 +100,6 @@ export const buildStep5AnswerPayload = (
   };
 };
 
-const getFunctionsBaseUrl = (): string | null => {
-  const fromFunctions = import.meta.env.VITE_SUPABASE_FUNCTIONS_URL?.trim();
-  if (fromFunctions) {
-    return fromFunctions.replace(/\/+$/, "");
-  }
-
-  const fromApi = import.meta.env.VITE_API_BASE_URL?.trim();
-  if (fromApi) {
-    return fromApi.replace(/\/+$/, "");
-  }
-
-  return null;
-};
-
-const buildFunctionUrls = (baseUrl: string, functionName: string): string[] => {
-  const direct = `${baseUrl}/${functionName}`;
-  if (baseUrl.includes("/functions/v1")) {
-    return [direct];
-  }
-  return [direct, `${baseUrl}/functions/v1/${functionName}`];
-};
-
-const callFunction = async <TResponse>(
-  functionName: string,
-  payload: Record<string, unknown>,
-  signal?: AbortSignal,
-): Promise<TResponse> => {
-  const baseUrl = getFunctionsBaseUrl();
-  if (!baseUrl) {
-    throw new Error("FUNCTIONS_BASE_URL_NOT_CONFIGURED");
-  }
-
-  const candidates = buildFunctionUrls(baseUrl, functionName);
-  let lastErrorCode = "FUNCTION_CALL_FAILED:UNKNOWN";
-
-  for (const url of candidates) {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-      signal,
-    });
-
-    const raw = await response.text();
-    const parsed = raw ? (JSON.parse(raw) as TResponse) : ({} as TResponse);
-
-    if (response.ok) {
-      return parsed;
-    }
-
-    lastErrorCode = `FUNCTION_CALL_FAILED:${response.status}`;
-  }
-
-  throw new Error(lastErrorCode);
-};
-
 export const saveStep5AnswersToSession = async (
   payload: {
     sessionId: string;
@@ -165,7 +108,7 @@ export const saveStep5AnswersToSession = async (
   },
   signal?: AbortSignal,
 ): Promise<void> => {
-  const response = await callFunction<StepSaveResponse>(
+  const response = await callSupabaseFunction<StepSaveResponse>(
     "step-save",
     {
       sessionId: payload.sessionId,
@@ -189,7 +132,7 @@ export const fetchRandomPeerComparison = async (
   },
   signal?: AbortSignal,
 ): Promise<RandomPeerCompareResult> => {
-  const response = await callFunction<CompareRandomResponse>(
+  const response = await callSupabaseFunction<CompareRandomResponse>(
     "compare-random",
     {
       sessionId: payload.sessionId,
@@ -214,4 +157,3 @@ export const fetchRandomPeerComparison = async (
         : Array.from(EMPTY_ANSWERS),
   };
 };
-

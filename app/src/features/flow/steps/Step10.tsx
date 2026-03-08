@@ -50,8 +50,10 @@ export default function Step10() {
   );
 
   const handleBack = useCallback(() => {
-    navigate("/summary");
-  }, [navigate]);
+    const shouldReturnToWrapUp =
+      state.stepData[7]?.continueMode === "finish" && !state.completedSteps[9];
+    navigate(shouldReturnToWrapUp ? "/wrap-up" : "/summary");
+  }, [navigate, state.completedSteps, state.stepData]);
 
   const handleFinish = useCallback(() => {
     if (!selectedMission) {
@@ -65,8 +67,9 @@ export default function Step10() {
       missionScript: selectedMission.script,
       confirmedAt: new Date().toISOString(),
     });
-    completeStep(10);
-    navigate("/done");
+    if (completeStep(10)) {
+      navigate("/done");
+    }
   }, [completeStep, navigate, selectedMission, updateStepData]);
 
   return (

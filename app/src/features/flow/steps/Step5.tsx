@@ -85,8 +85,9 @@ export default function Step5() {
       answer: normalizedAnswer,
       q1: normalizedAnswer,
     });
-    completeStep(5);
-    navigate("/q2");
+    if (completeStep(5)) {
+      navigate("/q2");
+    }
   }, [completeStep, content, navigate, reason, updateStepData]);
 
   return (

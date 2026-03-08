@@ -2,14 +2,15 @@ import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFlowStore } from "../state/useFlowStore";
 import Step8Screen from "./step8/Step8Screen";
-import { STEP8_DEFAULT_EMOTION } from "./step8/step8.constants";
 
 export default function Step8() {
   const navigate = useNavigate();
   const { state, updateStepData, completeStep } = useFlowStore();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const selectedEmotion = state.stepData[8]?.emotion?.trim() || STEP8_DEFAULT_EMOTION;
+  const selectedEmotion = state.stepData[8]?.skipped
+    ? ""
+    : state.stepData[8]?.emotion?.trim() || "";
 
   const handleSelectEmotion = useCallback(
     (emotion: string) => {
@@ -30,11 +31,13 @@ export default function Step8() {
 
   const handleSkip = useCallback(() => {
     updateStepData(8, {
+      emotion: "",
       skipped: true,
       confirmedAt: new Date().toISOString(),
     });
-    completeStep(8);
-    navigate("/summary");
+    if (completeStep(8)) {
+      navigate("/summary");
+    }
   }, [completeStep, navigate, updateStepData]);
 
   const handleNext = useCallback(() => {
@@ -48,8 +51,9 @@ export default function Step8() {
       skipped: false,
       confirmedAt: new Date().toISOString(),
     });
-    completeStep(8);
-    navigate("/summary");
+    if (completeStep(8)) {
+      navigate("/summary");
+    }
   }, [completeStep, navigate, selectedEmotion, updateStepData]);
 
   return (

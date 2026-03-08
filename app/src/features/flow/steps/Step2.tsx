@@ -133,8 +133,9 @@ export default function Step2() {
     }
 
     updateStepData(2, { interests: selectedInterests });
-    completeStep(2);
-    navigate("/topics");
+    if (completeStep(2)) {
+      navigate("/topics");
+    }
   }, [completeStep, isReadyToProceed, navigate, selectedInterests, updateStepData]);
 
   return (

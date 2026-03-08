@@ -120,7 +120,7 @@ export default function Step6Screen({
           </button>
           <div className="flex flex-col items-center">
             <span className="text-xs font-medium uppercase tracking-widest text-warm-primary">
-              CONNECTION
+              연결 확인
             </span>
             <div className="mt-1 flex gap-1">
               <div className="h-1.5 w-1.5 rounded-full bg-warm-primary" />
@@ -142,7 +142,7 @@ export default function Step6Screen({
               </span>
             </div>
             <span className="mb-3 inline-block rounded-full border border-warm-accent/30 bg-white px-3 py-1 text-xs font-bold text-warm-primary shadow-sm">
-              QUESTION 01 - 08
+              질문 01 - 08
             </span>
             <h3 className="px-4 text-lg font-bold leading-snug text-warm-text">
               Q1부터 Q8까지 답변을 서로 비교해봐요
@@ -209,7 +209,7 @@ export default function Step6Screen({
           >
             <div className="absolute inset-0 translate-y-full bg-white/20 transition-transform duration-300 ease-out group-hover:translate-y-0" />
             <span className="relative flex items-center justify-center gap-2">
-              다음 답변 보기
+              마무리로 이동
               <span
                 aria-hidden
                 className="material-symbols-outlined text-[24px] transition-transform group-hover:translate-x-1"

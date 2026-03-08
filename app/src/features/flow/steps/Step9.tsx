@@ -2,22 +2,19 @@ import { useCallback, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFlowStore } from "../state/useFlowStore";
 import Step9Screen from "./step9/Step9Screen";
-import {
-  STEP9_DEFAULT_SUMMARY_VALUE,
-  STEP9_SUMMARY_OPTIONS,
-} from "./step9/summaryOptions";
+import { STEP9_SUMMARY_OPTIONS } from "./step9/summaryOptions";
 
 export default function Step9() {
   const navigate = useNavigate();
   const { state, updateStepData, completeStep } = useFlowStore();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const selectedValue = state.stepData[9]?.summaryValue || STEP9_DEFAULT_SUMMARY_VALUE;
+  const selectedValue = state.stepData[9]?.summaryValue || "";
 
   const selectedOption = useMemo(
     () =>
       STEP9_SUMMARY_OPTIONS.find((option) => option.value === selectedValue) ??
-      STEP9_SUMMARY_OPTIONS[0],
+      null,
     [selectedValue],
   );
 
@@ -54,8 +51,9 @@ export default function Step9() {
       summaryText: selectedOption.text.replace(/\n/g, " "),
       confirmedAt: new Date().toISOString(),
     });
-    completeStep(9);
-    navigate("/mission");
+    if (completeStep(9)) {
+      navigate("/mission");
+    }
   }, [completeStep, navigate, selectedOption, updateStepData]);
 
   return (

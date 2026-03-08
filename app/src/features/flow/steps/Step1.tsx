@@ -66,9 +66,9 @@ export default function Step1() {
 
     didSyncOnMountRef.current = true;
     const ensuredNickname = ensureNickname();
-    const hasAvatarSeed = typeof step1Data?.avatarSeed === "string" && step1Data.avatarSeed.length > 0;
-    if (hasAvatarSeed) {
-      avatarSeedRef.current = step1Data.avatarSeed;
+    const existingAvatarSeed = step1Data?.avatarSeed;
+    if (typeof existingAvatarSeed === "string" && existingAvatarSeed.length > 0) {
+      avatarSeedRef.current = existingAvatarSeed;
     }
 
     updateStepData(1, {

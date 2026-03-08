@@ -13,8 +13,8 @@ export default function FlowFooterNav({
   canProceed,
   onNext,
   onPrev,
-  nextLabel = "Next",
-  prevLabel = "Back",
+  nextLabel = "다음",
+  prevLabel = "이전",
   hidePrev = false,
   stepNo,
   totalSteps = 5,
@@ -23,7 +23,7 @@ export default function FlowFooterNav({
     <footer className="sticky bottom-0 mt-8 border-t border-slate-200 bg-white/95 px-4 pb-4 pt-3 backdrop-blur">
       {typeof stepNo === "number" ? (
         <p className="mb-3 text-center text-xs font-medium text-slate-500">
-          Step {stepNo} / {totalSteps}
+          단계 {stepNo} / {totalSteps}
         </p>
       ) : null}
       <div className="mx-auto flex w-full max-w-md gap-3">

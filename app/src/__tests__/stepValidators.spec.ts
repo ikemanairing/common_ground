@@ -1,134 +1,108 @@
-type ValidationResult = {
-  valid: boolean;
-  errors: string[];
+import { createInitialFlowState, type FlowState } from "../features/flow/state/flowTypes";
+import { STEP2_REQUIRED_CATEGORIES } from "../features/flow/steps/step2/step2.constants";
+import { validateStep } from "../features/flow/validators/stepValidators";
+
+const assert = (condition: unknown, message: string): void => {
+  if (!condition) {
+    throw new Error(message);
+  }
 };
 
-type StepValidator = (payload: unknown) => ValidationResult;
-
-type ValidatorExpectation = {
-  stepId: string;
-  caseName: string;
-  payload: unknown;
-  expectedValid: boolean;
-  expectedErrorTokens?: string[];
+const createState = (overrides: Partial<FlowState> = {}): FlowState => {
+  const initialState = createInitialFlowState();
+  return {
+    ...initialState,
+    ...overrides,
+    completedSteps: {
+      ...initialState.completedSteps,
+      ...(overrides.completedSteps ?? {}),
+    },
+    stepData: {
+      ...initialState.stepData,
+      ...(overrides.stepData ?? {}),
+    },
+  };
 };
 
-type Outcome = {
-  status: "pass" | "skip" | "fail";
-  message: string;
+const buildValidStep2Interests = (): string[] => {
+  return STEP2_REQUIRED_CATEGORIES.flatMap((category) => category.options.slice(0, 2));
 };
 
-declare const describe:
-  | undefined
-  | ((name: string, callback: () => void) => void);
-declare const it: undefined | ((name: string, callback: () => void) => void);
-declare const process: undefined | { env?: Record<string, string | undefined> };
+const run = (): void => {
+  const invalidStep1 = validateStep(
+    1,
+    createState({
+      stepData: {
+        1: { nickname: "" },
+      },
+    }),
+  );
+  assert(!invalidStep1.isValid, "step1 should reject empty nickname");
 
-const expectations: ValidatorExpectation[] = [
-  {
-    stepId: "step1",
-    caseName: "rejects empty nickname",
-    payload: { nickname: "" },
-    expectedValid: false,
-    expectedErrorTokens: ["nickname"],
-  },
-  {
-    stepId: "step2",
-    caseName: "accepts supported team size",
-    payload: { teamSize: 2 },
-    expectedValid: true,
-  },
-  {
-    stepId: "step2",
-    caseName: "rejects unsupported team size",
-    payload: { teamSize: 4 },
-    expectedValid: false,
-    expectedErrorTokens: ["teamSize"],
-  },
-  {
-    stepId: "step3",
-    caseName: "rejects missing selections",
-    payload: { selections: [] },
-    expectedValid: false,
-    expectedErrorTokens: ["selections"],
-  },
-];
+  const validStep2 = validateStep(
+    2,
+    createState({
+      stepData: {
+        2: { interests: buildValidStep2Interests() },
+      },
+    }),
+  );
+  assert(validStep2.isValid, "step2 should accept two interests per category");
 
-const validators: Record<string, StepValidator | undefined> = {
+  const invalidStep3 = validateStep(
+    3,
+    createState({
+      stepData: {
+        3: { topics: ["한 가지"], activity: "" },
+      },
+    }),
+  );
+  assert(!invalidStep3.isValid, "step3 should reject insufficient topic/activity selections");
+
+  const validStep5 = validateStep(
+    5,
+    createState({
+      stepData: {
+        5: {
+          q1Content: "축구 하이라이트",
+          q1Reason: "같이 얘기하기 쉽다",
+        },
+      },
+    }),
+  );
+  assert(validStep5.isValid, "step5 should accept q1 content/reason pair");
+
+  const validStep8Skip = validateStep(
+    8,
+    createState({
+      stepData: {
+        8: { skipped: true, emotion: "" },
+      },
+    }),
+  );
+  assert(validStep8Skip.isValid, "step8 should allow skip flow");
+
+  const invalidStep9 = validateStep(
+    9,
+    createState({
+      stepData: {
+        9: { summaryValue: "", summaryText: "" },
+      },
+    }),
+  );
+  assert(!invalidStep9.isValid, "step9 should require an explicit summary selection");
+
+  const validStep10 = validateStep(
+    10,
+    createState({
+      stepData: {
+        10: { mission: "옆자리 친구에게 점심 뭐 먹어? 묻기" },
+      },
+    }),
+  );
+  assert(validStep10.isValid, "step10 should accept selected mission");
+
+  console.log("[pass] stepValidators.spec");
 };
 
-function evaluateExpectation(item: ValidatorExpectation): Outcome {
-  const validator = validators[item.stepId];
-  if (!validator) {
-    return {
-      status: "skip",
-      message: `[skip] ${item.stepId} is not wired yet`,
-    };
-  }
-
-  const result = validator(item.payload);
-  if (result.valid !== item.expectedValid) {
-    return {
-      status: "fail",
-      message: `[fail] ${item.stepId}/${item.caseName}: expected valid=${item.expectedValid}, got ${result.valid}`,
-    };
-  }
-
-  if (item.expectedErrorTokens && item.expectedErrorTokens.length > 0) {
-    const mergedErrors = result.errors.join(" ");
-    for (const token of item.expectedErrorTokens) {
-      if (!mergedErrors.includes(token)) {
-        return {
-          status: "fail",
-          message: `[fail] ${item.stepId}/${item.caseName}: missing error token "${token}"`,
-        };
-      }
-    }
-  }
-
-  return { status: "pass", message: `[pass] ${item.stepId}/${item.caseName}` };
-}
-
-function registerRunnerSuite(): void {
-  describe!("step validator expectations", () => {
-    for (const item of expectations) {
-      it!(`[${item.stepId}] ${item.caseName}`, () => {
-        const outcome = evaluateExpectation(item);
-        if (outcome.status === "skip") {
-          return;
-        }
-        if (outcome.status === "fail") {
-          throw new Error(outcome.message);
-        }
-      });
-    }
-  });
-}
-
-export function runPseudoStepValidatorSpec(): void {
-  let failCount = 0;
-
-  for (const item of expectations) {
-    const outcome = evaluateExpectation(item);
-    if (outcome.status === "fail") {
-      failCount += 1;
-      console.error(outcome.message);
-      continue;
-    }
-    console.log(outcome.message);
-  }
-
-  if (failCount > 0) {
-    throw new Error(`step validator pseudo suite failed with ${failCount} case(s)`);
-  }
-}
-
-if (typeof describe === "function" && typeof it === "function") {
-  registerRunnerSuite();
-} else if (
-  typeof process !== "undefined" &&
-  process.env &&
-  process.env.RUN_PSEUDO_VALIDATOR_SPEC === "1"
-) {
-  runPseudoStepValidatorSpec();
-}
+run();

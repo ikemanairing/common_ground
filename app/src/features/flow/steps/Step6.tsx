@@ -236,8 +236,9 @@ export default function Step6() {
       peerSource,
       comparedAt: step6Data?.comparedAt ?? new Date().toISOString(),
     });
-    completeStep(6);
-    navigate("/wrap-up");
+    if (completeStep(6)) {
+      navigate("/wrap-up");
+    }
   }, [
     completeStep,
     navigate,

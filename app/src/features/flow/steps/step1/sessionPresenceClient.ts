@@ -1,5 +1,7 @@
 type SessionStatus = "pending" | "active" | "completed" | "cancelled";
 
+import { callSupabaseFunction } from "../../../../lib/api/functionClient";
+
 type SessionJoinResponse = {
   ok: boolean;
   data?: {
@@ -73,70 +75,12 @@ export const resolveSessionCodeFromSearch = (
   return DEFAULT_SESSION_CODE;
 };
 
-const getFunctionsBaseUrl = (): string | null => {
-  const fromFunctions = import.meta.env.VITE_SUPABASE_FUNCTIONS_URL?.trim();
-  if (fromFunctions) {
-    return fromFunctions.replace(/\/+$/, "");
-  }
-
-  const fromApi = import.meta.env.VITE_API_BASE_URL?.trim();
-  if (fromApi) {
-    return fromApi.replace(/\/+$/, "");
-  }
-
-  return null;
-};
-
-const buildFunctionUrls = (baseUrl: string, functionName: string): string[] => {
-  const direct = `${baseUrl}/${functionName}`;
-  if (baseUrl.includes("/functions/v1")) {
-    return [direct];
-  }
-  return [direct, `${baseUrl}/functions/v1/${functionName}`];
-};
-
-const callFunction = async <TResponse>(
-  functionName: string,
-  payload: Record<string, unknown>,
-  signal?: AbortSignal,
-): Promise<TResponse> => {
-  const baseUrl = getFunctionsBaseUrl();
-  if (!baseUrl) {
-    throw new Error("FUNCTIONS_BASE_URL_NOT_CONFIGURED");
-  }
-
-  const candidates = buildFunctionUrls(baseUrl, functionName);
-  let lastErrorCode = "FUNCTION_CALL_FAILED:UNKNOWN";
-
-  for (const url of candidates) {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-      signal,
-    });
-
-    const raw = await response.text();
-    const parsed = raw ? (JSON.parse(raw) as TResponse) : ({} as TResponse);
-
-    if (response.ok) {
-      return parsed;
-    }
-
-    lastErrorCode = `FUNCTION_CALL_FAILED:${response.status}`;
-  }
-
-  throw new Error(lastErrorCode);
-};
-
 export const fetchSessionParticipantCount = async (
   sessionCode: string,
   signal?: AbortSignal,
 ): Promise<number> => {
   const normalizedCode = normalizeSessionCode(sessionCode);
-  const response = await callFunction<SessionPresenceResponse>(
+  const response = await callSupabaseFunction<SessionPresenceResponse>(
     "session-presence",
     { sessionCode: normalizedCode },
     signal,
@@ -158,7 +102,7 @@ export const joinSessionAndFetchCount = async (
   signal?: AbortSignal,
 ): Promise<SessionJoinResult> => {
   const normalizedCode = normalizeSessionCode(payload.sessionCode);
-  const response = await callFunction<SessionJoinResponse>(
+  const response = await callSupabaseFunction<SessionJoinResponse>(
     "session-join",
     {
       sessionCode: normalizedCode,

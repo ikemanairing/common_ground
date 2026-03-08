@@ -117,7 +117,7 @@ export default function Step8Screen({
           <button
             type="button"
             onClick={onBack}
-            aria-label="Go back"
+            aria-label="뒤로 가기"
             className="flex items-center justify-center rounded-full p-2 text-text-primary-light transition-colors hover:bg-black/5 dark:text-text-primary-dark dark:hover:bg-white/5"
           >
             <span aria-hidden className="material-symbols-outlined !text-[24px]">
@@ -135,7 +135,7 @@ export default function Step8Screen({
               .filter(Boolean)
               .join(" ")}
           >
-            Skip
+            건너뛰기
           </button>
         </header>
 

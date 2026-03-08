@@ -2,37 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 
 import { useFlowStore } from "../state/useFlowStore";
 
-type Step1Data = {
-  nickname?: string;
-};
-
-type Step8Data = {
-  emotion?: string;
-};
-
-type Step9Data = {
-  summaryText?: string;
-};
-
-type Step10Data = {
-  mission?: string;
-};
-
-type FlowState = {
-  stepData?: {
-    1?: Step1Data;
-    8?: Step8Data;
-    9?: Step9Data;
-    10?: Step10Data;
-    [key: number]: unknown;
-  };
-};
-
-type FlowStoreContract = {
-  state: FlowState;
-  updateStepData: (stepNo: number, payload: Record<string, unknown>) => void;
-};
-
 type DoneProps = {
   onRestart?: () => void;
 };
@@ -59,21 +28,24 @@ const isDonePhaseAtLeast = (phase: DoneIntroPhase, target: DoneIntroPhase): bool
 };
 
 export default function Done({ onRestart }: DoneProps) {
-  const { state, updateStepData } = useFlowStore() as unknown as FlowStoreContract;
+  const { state, updateStepData } = useFlowStore();
 
-  const step1 = ((state as FlowState)?.stepData?.[1] ?? {}) as Step1Data;
-  const step8 = ((state as FlowState)?.stepData?.[8] ?? {}) as Step8Data;
-  const step9 = ((state as FlowState)?.stepData?.[9] ?? {}) as Step9Data;
-  const step10 = ((state as FlowState)?.stepData?.[10] ?? {}) as Step10Data;
+  const step1 = state.stepData[1] ?? {};
+  const step8 = state.stepData[8] ?? {};
+  const step9 = state.stepData[9] ?? {};
+  const step10 = state.stepData[10] ?? {};
 
   const summaryRows = useMemo(
     () => [
-      { label: "Nickname", value: step1.nickname ?? "익명" },
-      { label: "Emotion", value: step8.emotion ?? "미선택" },
-      { label: "Daily Summary", value: step9.summaryText ?? "미선택" },
-      { label: "Tomorrow Mission", value: step10.mission ?? "미선택" },
+      { label: "닉네임", value: step1.nickname ?? "익명" },
+      {
+        label: "감정",
+        value: step8.skipped ? "건너뛰기" : step8.emotion ?? "미선택",
+      },
+      { label: "오늘의 문장", value: step9.summaryText ?? "미선택" },
+      { label: "내일의 미션", value: step10.mission ?? "미선택" },
     ],
-    [step1.nickname, step8.emotion, step9.summaryText, step10.mission],
+    [step1.nickname, step8.emotion, step8.skipped, step9.summaryText, step10.mission],
   );
   const [introPhase, setIntroPhase] = useState<DoneIntroPhase>("badge");
   const [titleLength, setTitleLength] = useState(0);
@@ -194,7 +166,7 @@ export default function Done({ onRestart }: DoneProps) {
               }
             }}
           >
-            FLOW COMPLETED
+            연결 완료
           </p>
           <h1 className="mt-2 min-h-[2.4rem] text-3xl font-bold leading-tight text-slate-900">
             {showTitle ? visibleTitle : "\u00A0"}
@@ -282,7 +254,7 @@ export default function Done({ onRestart }: DoneProps) {
           }
         }}
       >
-        Start Again
+        처음부터 다시하기
       </button>
     </section>
   );

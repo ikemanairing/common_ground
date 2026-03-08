@@ -21,6 +21,38 @@ import Step9 from "../features/flow/steps/Step9";
 import Step10 from "../features/flow/steps/Step10";
 import Done from "../features/flow/steps/Done";
 import { useFlowStore } from "../features/flow/state/useFlowStore";
+import {
+  canAccessRoute,
+  getResumePath,
+  type AppRoutePath,
+} from "./flowNavigation";
+
+function ResumeIndexRoute() {
+  const { state } = useFlowStore();
+  const resumePath = getResumePath(state);
+
+  if (resumePath === "/") {
+    return <Step1 />;
+  }
+
+  return <Navigate replace to={resumePath} />;
+}
+
+function FlowRouteGate({
+  path,
+  children,
+}: {
+  path: AppRoutePath;
+  children: React.ReactElement;
+}) {
+  const { state } = useFlowStore();
+
+  if (canAccessRoute(state, path)) {
+    return children;
+  }
+
+  return <Navigate replace to={getResumePath(state)} />;
+}
 
 function DoneRoute() {
   const navigate = useNavigate();
@@ -40,25 +72,151 @@ export default function AppRouter() {
     <Routes>
       <Route path="/" element={<App />}>
         <Route element={<MobileShell />}>
-          <Route index element={<Step1 />} />
-          <Route path="profile" element={<Step1Profile />} />
-          <Route path="interests" element={<Step2 />} />
-          <Route path="topics" element={<Step3 />} />
-          <Route path="promise" element={<Step4 />} />
-          <Route path="q1" element={<Step5 />} />
-          <Route path="q2" element={<StepQ2 />} />
-          <Route path="q3" element={<StepQ3 />} />
-          <Route path="q4" element={<StepQ4 />} />
-          <Route path="q5" element={<StepQ5 />} />
-          <Route path="q6" element={<StepQ6 />} />
-          <Route path="q7" element={<StepQ7 />} />
-          <Route path="q8" element={<StepQ8 />} />
-          <Route path="compare" element={<Step6 />} />
-          <Route path="wrap-up" element={<Step7 />} />
-          <Route path="emotion" element={<Step8 />} />
-          <Route path="summary" element={<Step9 />} />
-          <Route path="mission" element={<Step10 />} />
-          <Route path="done" element={<DoneRoute />} />
+          <Route index element={<ResumeIndexRoute />} />
+          <Route
+            path="profile"
+            element={
+              <FlowRouteGate path="/profile">
+                <Step1Profile />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="interests"
+            element={
+              <FlowRouteGate path="/interests">
+                <Step2 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="topics"
+            element={
+              <FlowRouteGate path="/topics">
+                <Step3 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="promise"
+            element={
+              <FlowRouteGate path="/promise">
+                <Step4 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="q1"
+            element={
+              <FlowRouteGate path="/q1">
+                <Step5 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="q2"
+            element={
+              <FlowRouteGate path="/q2">
+                <StepQ2 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="q3"
+            element={
+              <FlowRouteGate path="/q3">
+                <StepQ3 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="q4"
+            element={
+              <FlowRouteGate path="/q4">
+                <StepQ4 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="q5"
+            element={
+              <FlowRouteGate path="/q5">
+                <StepQ5 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="q6"
+            element={
+              <FlowRouteGate path="/q6">
+                <StepQ6 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="q7"
+            element={
+              <FlowRouteGate path="/q7">
+                <StepQ7 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="q8"
+            element={
+              <FlowRouteGate path="/q8">
+                <StepQ8 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="compare"
+            element={
+              <FlowRouteGate path="/compare">
+                <Step6 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="wrap-up"
+            element={
+              <FlowRouteGate path="/wrap-up">
+                <Step7 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="emotion"
+            element={
+              <FlowRouteGate path="/emotion">
+                <Step8 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="summary"
+            element={
+              <FlowRouteGate path="/summary">
+                <Step9 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="mission"
+            element={
+              <FlowRouteGate path="/mission">
+                <Step10 />
+              </FlowRouteGate>
+            }
+          />
+          <Route
+            path="done"
+            element={
+              <FlowRouteGate path="/done">
+                <DoneRoute />
+              </FlowRouteGate>
+            }
+          />
         </Route>
         <Route path="*" element={<Navigate replace to="/" />} />
       </Route>

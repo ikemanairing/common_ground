@@ -39,8 +39,9 @@ export default function Step4() {
       agreementAccepted: true,
       promiseAccepted: true,
     });
-    completeStep(4);
-    navigate("/q1");
+    if (completeStep(4)) {
+      navigate("/q1");
+    }
   }, [agreementChecked, completeStep, navigate, updateStepData]);
 
   return (

@@ -118,7 +118,7 @@ export default function Step10Screen({
           <button
             type="button"
             onClick={onBack}
-            aria-label="Go back"
+            aria-label="뒤로 가기"
             className="flex size-12 shrink-0 items-center justify-center rounded-full text-text-main transition-colors hover:bg-surface-light dark:text-slate-100 dark:hover:bg-surface-dark"
           >
             <span aria-hidden className="material-symbols-outlined text-[24px]">
@@ -229,7 +229,7 @@ export default function Step10Screen({
                       <div className="relative border-l-2 border-primary/30 pl-3">
                         <p className="text-sm font-normal leading-relaxed text-text-muted dark:text-slate-300">
                           <span className="mb-1 block text-xs font-bold uppercase tracking-wider text-primary">
-                            Script
+                            예시 대화
                           </span>
                           {option.script}
                         </p>

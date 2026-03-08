@@ -56,7 +56,7 @@ export default function StepQ2Screen({
           <button
             type="button"
             onClick={onBack}
-            aria-label="Go back"
+            aria-label="뒤로 가기"
             className="flex size-12 shrink-0 items-center justify-center rounded-full text-text-main transition-colors hover:bg-primary/10 dark:text-slate-100"
           >
             <span aria-hidden className="material-symbols-outlined text-[24px]">
@@ -64,7 +64,7 @@ export default function StepQ2Screen({
             </span>
           </button>
           <h2 className="flex-1 pr-12 text-center text-lg font-bold leading-tight tracking-[-0.015em] text-text-main dark:text-slate-100">
-            Taste Map
+            질문 이어가기
           </h2>
         </header>
 
@@ -74,7 +74,7 @@ export default function StepQ2Screen({
               <span aria-hidden className="material-symbols-outlined text-[14px]">
                 location_on
               </span>
-              Step 2
+              질문 2
             </span>
             <span className="text-sm font-medium text-text-secondary dark:text-slate-400">
               2 / 8
@@ -97,7 +97,7 @@ export default function StepQ2Screen({
                   .join(" ")}
                 onAnimationEnd={onBadgeAnimationEnd}
               >
-                Question 02
+                질문 02
               </span>
               <h1 className="mb-4 min-h-[5rem] break-keep whitespace-pre-line text-left text-[32px] font-bold leading-tight tracking-tight text-text-main dark:text-slate-100">
                 {showTitle ? typedTitle : "\u00A0"}
